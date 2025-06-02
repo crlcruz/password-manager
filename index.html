@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerenciador de Senhas Pessoal</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Gerenciador de Senhas</h1>
+        <div id="messages"></div>
+
+        <!-- Seção de Autenticação -->
+        <div id="authSection">
+            <div id="loginFormContainer">
+                <h2>Login</h2>
+                <form id="loginForm">
+                    <div class="form-group">
+                        <label for="loginUsername">Usuário:</label>
+                        <input type="text" id="loginUsername" name="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="loginMasterPassword">Senha Mestra:</label>
+                        <input type="password" id="loginMasterPassword" name="masterPassword" required>
+                    </div>
+                    <button type="submit">Entrar</button>
+                    <button type="button" id="showRegisterFormBtn" class="secondary">Registrar</button>
+                </form>
+            </div>
+
+            <div id="registerFormContainer" class="hidden">
+                <h2>Registrar</h2>
+                <form id="registerForm">
+                    <div class="form-group">
+                        <label for="registerUsername">Usuário:</label>
+                        <input type="text" id="registerUsername" name="username" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerMasterPassword">Senha Mestra:</label>
+                        <input type="password" id="registerMasterPassword" name="masterPassword" required>
+                    </div>
+                     <div class="form-group">
+                        <label for="registerMasterPasswordConfirm">Confirmar Senha Mestra:</label>
+                        <input type="password" id="registerMasterPasswordConfirm" name="masterPasswordConfirm" required>
+                    </div>
+                    <button type="submit">Registrar</button>
+                    <button type="button" id="showLoginFormBtn" class="secondary">Já tenho conta</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Seção Principal da Aplicação (após login) -->
+        <div id="appSection" class="hidden">
+            <h2>Minhas Senhas</h2>
+            <button id="logoutBtn" class="danger">Sair</button>
+            <hr>
+            <h3>Adicionar Nova Senha</h3>
+            <form id="addPasswordForm">
+                <div class="form-group">
+                    <label for="siteName">Nome do Site/Serviço:</label>
+                    <input type="text" id="siteName" name="siteName" required>
+                </div>
+                <div class="form-group">
+                    <label for="siteUsername">Usuário do Site:</label>
+                    <input type="text" id="siteUsername" name="siteUsername">
+                </div>
+                <div class="form-group">
+                    <label for="sitePassword">Senha do Site:</label>
+                    <input type="password" id="sitePassword" name="sitePassword" required>
+                </div>
+                <button type="submit">Adicionar Senha</button>
+            </form>
+            <hr>
+            <h3>Senhas Salvas</h3>
+            <ul id="passwordsList">
+                <!-- Senhas serão inseridas aqui pelo JavaScript -->
+            </ul>
+        </div>
+    </div>
+
+    <script src="js/crypto.js"></script>
+    <script src="js/api.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
